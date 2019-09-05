@@ -1,0 +1,109 @@
+.panel-body-noborder
+{
+    padding: 5px;
+}
+
+.validatebox-readonly
+{
+    background-color: #f4f4f4;
+}
+
+.icon-windows
+{
+    background: rgba(0, 0, 0, 0) url("icons/windows.gif") no-repeat scroll center center;
+}
+
+.icon-saveandclose
+{
+    background: rgba(0, 0, 0, 0) url("icons/saveandclose.png") no-repeat scroll center center;
+}
+
+.icon-tab
+{
+    background: rgba(0, 0, 0, 0) url("icons/tab.gif") no-repeat scroll center center;
+}
+
+.icon-action
+{
+    background: rgba(0, 0, 0, 0) url("icons/action.gif") no-repeat scroll center center;
+}
+
+.icon-menu
+{
+    background: rgba(0, 0, 0, 0) url("icons/menu.gif") no-repeat scroll center center;
+}
+
+.icon-design
+{
+    background: rgba(0, 0, 0, 0) url("icons/design.png") no-repeat scroll center center;
+}
+
+.icon-up
+{
+    background: rgba(0, 0, 0, 0) url("icons/up.png") no-repeat scroll center center;
+}
+
+.icon-down
+{
+    background: rgba(0, 0, 0, 0) url("icons/down.png") no-repeat scroll center center;
+}
+
+.icon-browse
+{
+    background: rgba(0, 0, 0, 0) url("icons/browse.png") no-repeat scroll center center;
+}
+
+.palette-menu-icon
+{
+    background: rgba(0, 0, 0, 0) url("icons/tree_folder_open.gif") no-repeat scroll center center;
+}
+
+.window .window-header .panel-with-icon
+{
+    padding-left: 20px;
+}
+
+.search-btn-icon
+{
+    display: inline-block;
+    font-size: 1px;
+    height: 16px;
+    line-height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+
+.jOrgChart
+{
+    padding:10px;
+    width: 98%;
+    height: 98%;
+    background-image: url(Images/ChartBackground.png);
+}
+
+.jOrgChart .node {
+    background-color: #9AC7C7;
+    display: inline-block;
+    width: 80px;
+    height: 100px;
+    z-index: 10;
+    margin: 0 2px;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.datagrid-toolbar, .datagrid-pager
+{
+    background: #fff;
+    text-align: left;
+}
+
+.PrintArea {
+    margin: 0px;
+    padding: 0px;
+}
+
+.checkbox {
+    margin: 1px;
+}

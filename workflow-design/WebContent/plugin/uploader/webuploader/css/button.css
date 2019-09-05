@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+.misumiButton {
+	padding:10px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:5px;
+    background:#8c7e7b;
+    border: 3px solid white;
+    cursor:pointer;
+    margin-top:5px;
+    color:white;
+}
+.loginButton {
+	padding:10px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:5px;
+    background:#8c7e7b;
+    border: 3px solid white;
+    cursor:pointer;
+    margin-top:5px;
+    color:white;
+}
+.misumiLink {
+	color:white;
+	text-decoration:none;
+}
+
+.misumiButtonRead {
+	padding:10px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:5px;
+    background:#c0c0c0;
+    border: 3px solid white;
+    cursor:default;
+    margin-top:5px;
+    color:white;
+}

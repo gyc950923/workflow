@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<!--  <script src="../libs/jquery_1.11.0/jquery.min.js"></script>-->
+	
+<script type="text/javascript">
+//var shapes = window.dialogArguments;
+//alert("您传递的参数为：" + shapes[0].resourceId);
+
+function save(){
+	/*
+	alert("保存！！！" + $("#name").val());
+	
+	
+	 $.post("/flow_design/saveNodeProperties",
+			 {
+		 	name:$("#name").val(),
+		 	transaction:$("#transaction").val(),
+		 	resourceId:shapes[0].resourceId
+			 },
+			 function(result){
+		    alert(result);
+	});
+	*/
+}
+</script>
+<style type="text/css">
+.modal-demo {
+    background-color: #FFF;
+    width: 600px;
+    border: #000 solid 1px;
+    border-radius: 10px;
+    box-shadow: 0 8px 6px -6px black;
+    text-align: left;
+    display: none;
+}
+</style>
+</head>
+<body>
+<div class="modal-demo">
+	节点名字：<input type="text" name="name" id="name">
+	办理人：<input type="text" name="transaction" id="transaction">
+	
+	<br>
+	
+	<button >取消</button>&nbsp;&nbsp;
+	<button onclick="save()">确定</button>
+	</div>
+</body>
+</html>

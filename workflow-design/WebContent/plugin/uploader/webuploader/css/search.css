@@ -1,0 +1,13 @@
+#DataGrid1 tr{
+  background-color:expression(this.bgcolor=((this.rowIndex)%2==0)?'#F0F0F0':'white');
+}
+
+.scolor
+{
+	background-color: 	#C4E1FF;
+}
+
+.wari_tr
+{
+	background-color: yellow;
+}

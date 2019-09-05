@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta charset="UTF-8">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  	<!-- Internal CSS -->
+    <link rel="stylesheet" href="css/demo.css">
+      <link rel="stylesheet" href="css/custombox.min.css">
+    <script src="js/custombox.min.js"></script>
+    <script src="js/legacy.min.js"></script>
+	<script>
+	    <!-- endinjector -->
+		document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('tt').addEventListener('click', function ( e ) {
+        Custombox.open({
+            target:     'demo/xhr/ajax.html',
+            effect:     'door',
+            overlay:    Math.random() >= 0.5,
+            complete:   function () {
+               // $('.modal-ajax').find('.infinite').show();
+            }
+        });
+        e.preventDefault();
+    });
+  });
+</script>
+
+ </head>
+
+ <body>
+		 <div class="panel panel-default">
+                        <div class="panel-body">
+                            <p style="margin: 0;">- 无限连续打开模态窗口: <a id="tt" href="javascript:void(0);" class="infinite">example</a>.</p>
+                        </div>
+                    </div>
+ </body>
+</html>

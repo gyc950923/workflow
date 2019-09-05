@@ -1,0 +1,36 @@
+{
+  "name": "context-menu",
+  "version": "1.0.4",
+  "title": "jQuery Context Menu",
+  "author": {
+    "name": "Jonas Arnklint",
+    "email": "jonas.arnklint@revrise.com",
+    "url": "http://arnklint.com"
+  },
+  "licenses": [{
+    "type": "MIT",
+    "url": "https://raw.github.com/arnklint/jquery-contextMenu/master/MIT-LICENCE.txt"
+  }],
+  "dependencies": {
+    "jquery": ">=1.6.0"
+  },
+  "description": "Simple, small, yet powerfull and easy to use jQuery context menu for right / left clicking on something.",
+  "keywords": [
+    "menu",
+    "context-menu",
+    "context",
+    "right-click-menu",
+    "navigation"
+  ],
+  "homepage": "https://github.com/arnklint/jquery-contextMenu",
+  "contributors": [{
+    "name": "Evan Worley",
+    "url": "https://github.com/evanworley"
+  },{
+    "name": "Marc-Andre Ferland",
+    "url": "http://madrang.blogspot.com/"
+  }],
+  "files": [
+    "jquery.contextMenu.js"
+  ]
+}

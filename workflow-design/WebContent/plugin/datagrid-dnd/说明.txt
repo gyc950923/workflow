@@ -1,0 +1,2 @@
+easyui的dnd插件实现datagrid拖拽
+在form.jsp中进行了引用

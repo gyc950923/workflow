@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Generator" content="EditPlus">
+  <meta charset="UTF-8">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+
+	<script src="/flow_design/editor-app/layer/layer/jquery-1.9.1.js"></script>
+	<script src="/flow_design/editor-app/layer/layer/layer.js"></script>
+ 
+  <script type="text/javascript">
+
+
+
+	function tt(){
+		
+		alert("layer:" + layer);
+	layer.alert('内容');
+	}
+	function tt2(){
+		//alert("tt");
+	//iframe层
+	index = layer.open({
+	  type: 2,
+	  title: 'layer mobile页',
+	  shadeClose: false,
+	  shade: 0.8,
+	  area: ['380px', '60%'],
+	  content: './Noname3.html' //iframe的url
+	  ,cancel: function(index){ 
+			//右上角关闭回调
+			alert('关闭回调：' + index);
+		}
+	}); 
+	}
+
+	
+  </script>
+ </head>
+
+ <body>
+  sssss
+  <br/>
+ 
+  name:<input type="text" name="name" />
+  <button onclick="tt()">弹出</button>
+  <button onclick="tt2()">弹出层页面</button>
+
+  
+ </body>
+</html>

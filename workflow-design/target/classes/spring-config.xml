@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+">
+        
+    <!-- 加载 properties配置文件-->
+    <context:property-placeholder location="classpath:sysconfig.properties"/>
+   
+    <!-- 自动扫描dao和service包(自动注入) 排除过滤@Controller -->
+	<context:component-scan base-package="com.online.workflow.design,com.online.workflow.*.">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+    <!-- 激活注解 -->
+    
+    <!-- 引用 阿里druid连接池配置文件创建dataSource-->
+    <import resource="druid-config.xml"/>
+    
+    <!-- 配置hibernate session工厂 -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <!-- 根据此定义的类匹配是否链接的那个数据源  -->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 配置 hibernate 属性-->
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+            </props>
+        </property>
+        <!-- 自动扫描hbm.xml方式配置的hibernate类文件 -->
+        <property name="mappingResources">
+		    <list>
+			    <!-- <value>WorkflowDefinition.hbm.xml</value> -->
+			    <value>Org.hbm.xml</value>
+			    <value>Role.hbm.xml</value>
+			    <value>User.hbm.xml</value>
+			    <value>Menu.hbm.xml</value>
+			    <value>DbTable.hbm.xml</value>
+			    
+			    <value>HistTrace.hbm.xml</value>
+		    	<value>ProcessInstance.hbm.xml</value>
+		    	<value>ProcessInstanceVar.hbm.xml</value>
+		    	<value>TaskInstance.hbm.xml</value>
+		    	<value>Todo.hbm.xml</value>
+		    	<value>Token.hbm.xml</value>
+		    	<value>WorkflowDefinition.hbm.xml</value>
+		    	<value>WorkItemInstance.hbm.xml</value>
+		    </list>
+		</property>
+    </bean>
+    <!-- 工作流引擎提供的持久化类-->
+    <bean id="persistenceService" class="com.online.engine.pluginPersistence.impl.PersistenceService">
+    	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    <!-- spring提供的HibernateTemplate工具类-->
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+    	<property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <import resource="classpath*:WfRuntimeContext.xml"/>
+    <!-- 定义事务管理器(声明式的事务) -->
+    <bean name="transactionManager"
+        class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    
+    <!-- 定义事务的策略,用于事务优化 -->
+    <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!-- 增  -->
+            <tx:method name="add*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+            <tx:method name="save*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+            <!-- 改 --> 
+            <tx:method name="update*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+            <tx:method name="modify*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+            <tx:method name="edit*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+            <!-- 删 --> 
+            <tx:method name="delete*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+            <tx:method name="remove*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+            <!-- 查 --> 
+            <tx:method name="get*" propagation="REQUIRED" read-only="true"/>
+            <tx:method name="find*" propagation="REQUIRED" read-only="true"/>
+            <tx:method name="search*" propagation="REQUIRED" read-only="true"/>
+            <!-- 拦截剩余方法 -->
+            <tx:method name="*" propagation="REQUIRED" read-only="false"/>
+        </tx:attributes>
+    </tx:advice>
+    <!-- 事务注解 --> 
+    <tx:annotation-driven  />
+    
+    <!-- 事物切面处理 -->
+    <aop:config>
+        <!-- 配置事务的切入点 -->
+        <aop:pointcut id="transactionPointcut" expression="execution(* com.online.engine.pluginPersistence.impl.*Service.*(..)) or execution(* com.online.workflow.*.service.impl.*.*(..))"/>
+        <!-- 配置事务的执行策略 -->
+        <aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice"/>
+    </aop:config>
+    <!-- 激活aop自动代理功能 -->
+    <aop:aspectj-autoproxy  proxy-target-class="true" />
+</beans>

@@ -1,0 +1,14 @@
+com.online.workflow.common
+com.online.workflow.process
+com.online.workflow.process.enums
+com.online.workflow.process.forms
+com.online.workflow.process.net
+com.online.workflow.process.parser
+com.online.workflow.process.parser.formparser
+com.online.workflow.process.parser.netparser
+com.online.workflow.process.parser.resourcesparser
+com.online.workflow.process.parser.rulesparser
+com.online.workflow.process.parser.taskparser
+com.online.workflow.process.resources
+com.online.workflow.process.rules
+com.online.workflow.process.tasks

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="runtimeContext" class="com.online.engine.Instance.impl.RuntimeContext"
+		scope="prototype">
+		<property name="businessService" ref="businessService">
+		</property>
+		<property name="definitionService" ref="definitionService">
+		</property>
+		<property name="taskInstanceManager" ref="taskInstanceManager">
+		</property>
+		<property name="kernelManager" ref="kernelManager">
+		</property>
+		<property name="conditionResolver" ref="conditionResolver">
+		</property>
+		<property name="persistenceService" ref="persistenceService">
+		</property>
+	</bean>
+	<bean id="businessService" scope="prototype"
+		class="com.online.engine.pluginBusiness.BusinessService">
+	</bean>
+	<bean id="definitionService" scope="prototype"
+		class="com.online.engine.pluginDefinition.DefinitionService">
+	</bean>
+
+	<bean id="taskInstanceManager" scope="prototype"
+		class="com.online.engine.pluginTaskInstanceManger.TaskInstanceManger">
+	</bean>
+	<bean id="kernelManager" scope="prototype"
+		class="com.online.engine.pluginKernel.KernelManager">
+	</bean>
+	<bean id="conditionResolver" scope="prototype"
+		class="com.online.engine.pluginConditionResolver.ConditionResolver">
+	</bean>
+	<bean id="persistenceService" scope="prototype"
+		class="com.online.engine.pluginPersistence.impl.PersistenceService">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	<bean id="workFlowHelper" class="com.online.engine.WorkFlowHelper"
+		scope="prototype">
+		<property name="runtimeContext" ref="runtimeContext"></property>
+	</bean>
+
+</beans>  

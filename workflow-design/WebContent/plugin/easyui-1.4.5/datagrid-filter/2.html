@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/portal/plugin/easyui-1.4.5/themes/metro/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="/portal/plugin/easyui-1.4.5/themes/icon.css" />
+    <!--<link rel="stylesheet" type="text/css" href="http://www.m-vpn.com:8004/Using/OrgChart/jquery.jOrgChart.css" />
+    <link rel="stylesheet" type="text/css" href="http://www.m-vpn.com:8004/Using/easyui/printArea/PrintArea.css" />
+-->
+    <link rel="stylesheet" type="text/css" href="/portal/plugin/easyui-1.4.5/themes/Override.css" />
+    <script type="text/javascript" src="/portal/plugin/easyui-1.4.5/jquery.min.js"></script>
+    <script type="text/javascript" src="/portal/plugin/easyui-1.4.5/jquery.easyui.min.js"></script>
+   <!-- <script type="text/javascript" src="http://www.m-vpn.com:8004/Using/easyui/printArea/jquery.PrintArea.js"></script>-->
+    <script type="text/javascript" src="/portal/plugin/easyui-1.4.5/datagrid-filter/datagrid-filter.js"></script>
+    <script type="text/javascript" src="/portal/plugin/easyui-1.4.5/locale/easyui-lang-zh_CN.js"></script>
+    <!--<script type="text/javascript" src="http://www.m-vpn.com:8004/Using/OrgChart/jquery.jOrgChart.js"></script>-->
+	
+	<script type="text/javascript">
+	
+	var data = [
+           	{"itemid":"FI-SW-01","listprice":"Koi","attr1":10.00,"status":"P"},
+        	{"itemid":"K9-DL-01","listprice":"Dalmation","attr1":12.00,"status":"P"},
+        	{"itemid":"RP-SN-01","listprice":"Rattlesnake","attr1":12.00,"status":"P"},
+        	{"itemid":"RP-SN-01","listprice":"Rattlesnake","attr1":12.00,"status":"P"},
+        	{"itemid":"RP-LI-02","listprice":"Iguana","attr1":12.00,"status":"P"},
+        	{"itemid":"FL-DSH-01","listprice":"Manx","attr1":12.00,"status":"N"},
+        	{"itemid":"FL-DSH-01","listprice":"Manx","attr1":12.00,"status":"P"},
+        	{"itemid":"FL-DLH-02","listprice":"Persian","attr1":12.00,"status":"P"},
+        	{"itemid":"FL-DLH-02","listprice":"Persian","attr1":12.00,"status":"N"},
+        	{"itemid":"AV-CB-01","listprice":"Amazon Parrot","attr1":92.00,"status":"N"}
+        ];
+
+	</script>
+</head>
+<body>
+   
+    <div style="margin:20px 0;"></div>
+    <table class="easyui-datagrid" title="表格" style=""
+            data-options="rownumbers:true,singleSelect:true,data:data,method:'get',toolbar:toolbar,fitColumns:true" id="dg">
+        <thead>
+            <tr>
+                <th data-options="field:'itemid',width:200">用户名</th>
+                <th data-options="field:'listprice',width:200">地址</th>
+                <th data-options="field:'unitcost',width:200">性别</th>
+                <th data-options="field:'attr1',width:200">电话</th>
+                <th data-options="field:'status',width:200">Status</th>
+            </tr>
+        </thead>
+    </table>
+    <script type="text/javascript">
+         var i = 0
+        var toolbar = [{
+            // text:'Save',
+            iconCls:'icon-search',
+            handler:function(){
+                    if (i === 0) {
+                      var dg = $('#dg').datagrid({
+                            
+                        });
+                        dg.datagrid('enableFilter', [{
+                            Field:'listprice',
+                            Type:'numberbox',
+                            Options:{precision:1},
+                            Op:['equal','notequal','less','greater']
+                        },
+                        {
+                            field:'itemid',
+                            type:'combobox',
+                            options:{precision:1},
+                            op:['equal','notequal','less','greater']
+                        }]);
+                        i = 1     
+                    } else {
+                        //$('.datagrid-filter-row').css('display', 'none')
+                        $('.datagrid-view1').css('height', '25px')
+                        $('.datagrid-header').css('height', '25px')
+                        $('.datagrid-htable').css('height', '25px') 
+                      i = 0
+                    }
+                }
+        }];
+
+    </script>
+</body>
+    
+</html>

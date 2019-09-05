@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+    <!-- 指定所要扫描的注解所在位置 -->
+    <context:component-scan base-package="com.online.workflow.design.web.controller,com.online.workflow.*.controller">
+        <!-- 指定只扫描controller的注解 -->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+	<!-- 开启注解 替代下面注视的两行-->
+	<mvc:annotation-driven/>
+	<!--  
+		<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"></bean>
+		<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"></bean>
+    -->
+    
+    <!-- 静态资源访问屏蔽拦截器 -->
+    <mvc:resources location="/editor-app/" mapping="/editor-app/**"/>
+    
+    <!-- 视图层配置 -->
+    <!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/editor-app/popups/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean> -->
+    
+    <!--  二进制文件配置 -->
+    <!-- <bean name="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    	 编码格式
+    	<property name="defaultEncoding" value="UTF-8"></property>
+    	 文件最大值
+    	<property name="maxUploadSize" value="10485760000"></property>
+    	 文件最大缓存值
+    	<property name="maxInMemorySize" value="40960"></property>
+    </bean> -->
+</beans>

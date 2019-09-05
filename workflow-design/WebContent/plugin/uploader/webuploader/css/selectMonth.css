@@ -1,0 +1,49 @@
+<style type="text/css">
+*{margin:0px; padding:0px; font-size:11px;}
+#parenDiv{position:absolute; z-index:999; width:800px; border:0px solid #c3c3c3; margin-top:-20px;}
+.div1{width:210px; height:0px; background:#ffffff;font-size:11px; margin:0px auto;}
+.div1 table{background:#ffffff; width:170px; border-collapse:collapse; border:#CCCCCC 1px solid;}
+.div1 table td.th1{width:55px; background:#CCCCCC; text-align:center; border:0px;  height:24px; vertical-align:middle;}
+.div1 table td.th2{background:#CCCCCC;text-align:center; width:auto; font-size:13px;font-weight:bold;}
+.div1 table td.th4{background:#CCCCCC; text-align:center; width:auto; font-size:13px;}
+.div1 table td{background:#f0f0f0;}
+.div1 table td button{width:55px; background:#ffffff; text-align:center; border:#CCCCCC 1px solid;}
+.btnLeft{
+	margin:1px 0px 3px 0px;
+	height:18px;
+	vertical-align:middle;
+	border-style:none; 	
+	background-image:url('../img/month_left.jpg');
+}
+
+.btnRight{
+	margin:1px 0px 3px 0px;
+	height:18px;
+	vertical-align:middle;
+	border-style:none; 	
+	background-image:url('../img/month_right.jpg');
+}
+  .btn1_mouseout
+        {
+           cursor: pointer;
+
+        }
+		
+  .btn1_mouseover
+        {
+			 cursor: pointer;
+            filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#CCCCCC, EndColorStr=#CCCCCC);
+       		background-image: -moz-linear-gradient(top, #CCCCCC, #CCCCCC); /* Firefox */
+       
+        }
+		
+.monthSelectImage{
+	margin:1px 0px 5px 0px;
+	height:15px;
+	width:15px;
+	vertical-align:middle;
+	border-style:none; 	
+	cursor:pointer;
+	background-image:url('../img/cal-16x16.png');
+}
+</style>

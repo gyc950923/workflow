@@ -1,0 +1,100 @@
+.lineNot {
+	background-image: url('images/excel-toolbar-icons.png');
+	background-position: left center;
+	background-repeat: no-repeat;
+	display: inline-block;
+	text-decoration: none !important;
+	width: 16px;
+	height:16px;
+	background-position: -480px -64px;
+}
+
+.lineOut1 {
+	background-image: url('images/excel-toolbar-icons.png');
+	background-position: left center;
+	background-repeat: no-repeat;
+	display: inline-block;
+	text-decoration: none !important;
+	width: 16px;
+	height:16px;
+	background-position: 0 -80px;
+}
+
+.lineOut2 {
+	background-image: url('images/excel-toolbar-icons.png');
+	background-position: left center;
+	background-repeat: no-repeat;
+	display: inline-block;
+	text-decoration: none !important;
+	width: 16px;
+	height:16px;
+	background-position: -384px -64px;
+}
+
+.lineOut3 {
+	background-image: url('images/excel-toolbar-icons.png');
+	background-position: left center;
+	background-repeat: no-repeat;
+	display: inline-block;
+	text-decoration: none !important;
+	width: 16px;
+	height:16px;
+	background-position: -464px -64px;
+}
+
+.lineOut4 {
+	background-image: url('images/excel-toolbar-icons.png');
+	background-position: left center;
+	background-repeat: no-repeat;
+	display: inline-block;
+	text-decoration: none !important;
+	width: 16px;
+	height:16px;
+	background-position: -512px -64px;
+}
+
+.lineOutAll {
+	background-image: url('images/excel-toolbar-icons.png');
+	background-position: left center;
+	background-repeat: no-repeat;
+	display: inline-block;
+	text-decoration: none !important;
+	width: 16px;
+	height:16px;
+	background-position: -496px -64px;
+}
+
+.lineCenter1 {
+	background-image: url('images/lineCenter1.png');
+	background-position: left center;
+	background-repeat: no-repeat;
+	display: inline-block;
+	text-decoration: none !important;
+	width: 16px;
+	height:16px;
+}
+
+.lineCenter2 {
+	background-image: url('images/lineCenter2.png');
+	background-position: left center;
+	background-repeat: no-repeat;
+	display: inline-block;
+	text-decoration: none !important;
+	width: 16px;
+	height:16px;
+}
+
+.lineCenterAll {
+	background-image: url('images/excel-toolbar-icons.png');
+	background-position: left center;
+	background-repeat: no-repeat;
+	display: inline-block;
+	text-decoration: none !important;
+	width: 16px;
+	height:16px;
+	background-position: -448px -64px;
+}
+
+.lineOver {
+	border: 1px dotted #4f81bd;
+}

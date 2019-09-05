@@ -1,0 +1,10 @@
+当前文件夹存放的为前端框架Easui-1.4.5源文件
+
+修改日志：
+（吴永达  2017-05-26） 
+修改了plugin/easyui-1.4.5/themes/default/easyui.css文件中的 
+.validatebox-invalid
+.textbox
+.textbox .textbox-text
+3个样式
+
