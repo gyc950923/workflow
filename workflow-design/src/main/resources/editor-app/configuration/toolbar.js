@@ -36,6 +36,13 @@ KISBPM.TOOLBAR_CONFIG = {
         /* */
         ,
         {
+            "type" : "button",
+            "title" : "TOOLBAR.ACTION.GYC",
+            "cssClass" : "editor-icon icon-save",
+            "action" : "KISBPM.TOOLBAR.ACTIONS.saveModelGyc"
+        }
+        ,
+        {
             "type" : "separator",
             "title" : "",
             "cssClass" : "toolbar-separator"

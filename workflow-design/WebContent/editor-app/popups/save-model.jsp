@@ -21,6 +21,7 @@
 	function save() {
 		var isSuccess = false;
 		var currentWindow = frameElement.api;//获取弹出窗中的窗体对象
+		/*参数modelID为为模板 id   json_model为流程图表的内容，*/
 		var param={
 				isInsert:$("input[name='state']:checked").val(),
 				modelId:currentWindow.opener._MODEL_ID,
@@ -72,10 +73,6 @@
 				</tr>
 	    	</table>
 	    </form>
-	    <!-- <div style="text-align:center;padding:5px">
-	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="save()">确定</a>
-	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">取消</a>
-	    </div> -->
 	</div>
 </body>
 </html>

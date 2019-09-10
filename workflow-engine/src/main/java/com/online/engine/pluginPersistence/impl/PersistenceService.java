@@ -193,7 +193,7 @@ public class PersistenceService extends BaseDaoSupport implements
 	public WorkflowDefinition saveOrUpdateWorkflowDefinition(
 			WorkflowDefinition workflowDef, Boolean isInsert) {
 		if (isInsert) {//判断是否作为新版保存
-			String hql = "select max(version) from WorkflowDefinition where processId=?";
+			String hql = "select max(version) from WorkflowDefinition where processId=?0";
 			Object[] params = new Object[] { workflowDef.getProcessId() };
 			Integer version = (Integer) this.getHibernateTemplate()
 					.find(hql, params).get(0);

@@ -27,10 +27,11 @@ angular.module('activitiModeler')
         
         $scope.secondaryItems = KISBPM.TOOLBAR_CONFIG.secondaryItems;
 
-        // Call configurable click handler (From http://stackoverflow.com/questions/359788/how-to-execute-a-javascript-function-when-i-have-its-name-as-a-string)
+        // 调用点击按钮处理程序 (From http://stackoverflow.com/questions/359788/how-to-execute-a-javascript-function-when-i-have-its-name-as-a-string)
         var executeFunctionByName = function(functionName, context /*, args */) {
             var args = Array.prototype.slice.call(arguments).splice(2);
             var namespaces = functionName.split(".");
+            /*pop() 为截取最后一位*/
             var func = namespaces.pop();
             for(var i = 0; i < namespaces.length; i++) {
                 context = context[namespaces[i]];
@@ -38,7 +39,7 @@ angular.module('activitiModeler')
             return context[func].apply(this, args);
         };
 
-        // Click handler for toolbar buttons
+        // 单击“工具栏按钮的处理程序  buttonIndex 为按钮的下标 0开始”
         $scope.toolbarButtonClicked = function(buttonIndex) {
 
             // Default behaviour

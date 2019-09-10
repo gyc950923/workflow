@@ -62,6 +62,7 @@ KISBPM.TOOLBAR = {
 			});
     		
     	},
+    	
         saveModel: function (services) {
         	if(undefined==_MODEL_ID||null==_MODEL_ID||""==_MODEL_ID){
         		//KISBPM.TOOLBAR.ACTIONS.newModel();

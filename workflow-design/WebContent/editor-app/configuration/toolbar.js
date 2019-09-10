@@ -32,7 +32,13 @@ KISBPM.TOOLBAR_CONFIG = {
             "title" : "TOOLBAR.ACTION.SAVE",
             "cssClass" : "editor-icon icon-save",
             "action" : "KISBPM.TOOLBAR.ACTIONS.saveModel"
-        }
+        },
+       {
+           "type" : "button",
+           "title" : "TOOLBAR.ACTION.Gyc",
+           "cssClass" : "editor-icon icon-save",
+           "action" : "KISBPM.TOOLBAR.ACTIONS.saveModelGyc"
+       }
         /* */
         ,
         {

@@ -1,12 +1,6 @@
 <!doctype html>
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js"> <!--<![endif]-->
+
+<html class="no-js"> 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,26 +19,10 @@
 
 	<link rel="stylesheet" href="editor-app/css/style-common.css">
     <link rel="stylesheet" href="editor-app/css/style-editor.css">
-    <!--
-    <link rel="stylesheet" href="editor-app/custombox/css/custombox.min.css">
- -->
- <!-- 
-	<script src="editor-app/layer/layer/jquery-1.9.1.js"></script> 
-	<script src="editor-app/layer/layer/layer.js"></script>
-	-->
-	<!-- 
-	<link rel="stylesheet" type="text/css" href="editor-app/mypages/easyui/jQuery-easyui-master/themes/default/easyui.css">
-	<link rel="stylesheet" type="text/css" href="editor-app/mypages/easyui/jQuery-easyui-master/themes/icon.css">
--->
+   
+ 
 	<script  type="text/javascript">
-	//alert(window.opener.modelId);
-	//console.info(window);
-		//var paramJson = window.dialogArguments;
-		//alert(paramJson.username+"---"+paramJson.modelId);
-		//var json=window.location.search;alert(json);
-		//json = unescape(json).match(/\{.+?\}/);
-		//json = eval("("+json+")");
-		//alert(json);
+	
 		var url = window.document.location.href;//获取连接地址
 		var paramJson={};
 		if(url.indexOf("?") != -1){
@@ -64,29 +42,13 @@
 <body>
 
 	<div class="navbar navbar-fixed-top navbar-inverse" role="navigation" id="main-header" style="background-color: #0265CB;">
-	     <!--     -->
-	      
-	    <div><!-- class="navbar-header" -->
-	    	
+	    <div>
 	    	<span  class="STYLE11">
-	    		<!-- <img src="./editor-app/images/logo.png" style="height: 35px;width:80px; padding-left: 10px;"> -->
 	    		<span >工作流设计器</span>
-	    		
 	    	</span>
-            <!-- <a href="" ng-click="backToLanding()" class="navbar-brand"
-               title="{{'GENERAL.MAIN-TITLE' | translate}}"><span
-                    class="sr-only">{{'GENERAL.MAIN-TITLE' | translate}}</span></a> -->
-                   
         </div>
-   
 	</div>
 	
-	<!--[if lt IE 9]>
-	<div class="unsupported-browser">
-	    <p class="alert error">You are using an unsupported browser. Please upgrade your browser in order to use the
-	        editor.</p>
-	</div>
-	<![endif]-->
 	
 	<div class="alert-wrapper" ng-cloak>
 	    <div class="alert fadein {{alerts.current.type}}" ng-show="alerts.current" ng-click="dismissAlert()">
@@ -103,10 +65,6 @@
 	<div id="main" class="wrapper full clearfix" ng-style="{height: window.height + 'px'}" ng-app="activitiModeler" ng-include="'editor-app/editor.html'">
 	</div>
 
-	<!--[if lt IE 9]>
-	<script src="editor-app/libs/es5-shim-15.3.4.5/es5-shim.js"></script>
-	<script src="editor-app/libs/json3_3.2.6/lib/json3.min.js"></script>
-	<![endif]-->
 	
 	<script src="editor-app/libs/jquery_1.11.0/jquery.min.js"></script>
 	<script type="text/javascript">
@@ -120,7 +78,7 @@
 			dataType:'text',
 			success:function(data){
 				if(data){
-					alert(data)
+					console.log(data);
 					parentWindow._MODEL_ID = data;
 					window.close();
 				}
@@ -129,13 +87,6 @@
 	</script>
 	<script src="editor-app/libs/jquery-1.7.2.min.js"></script>
 	<script src="editor-app/libs/jquery-ui-1.10.3.custom.min.js"></script>
-	 <!-- <script src="editor-app/layer/layer/layer.js"></script>
-	  
-	<script type="text/javascript" src="editor-app/mypages/easyui/jQuery-easyui-master/jquery.easyui.min.js"></script> -->
-	<!--  
-	    <script src="editor-app/custombox/js/custombox.min.js"></script>
-    <script src="editor-app/custombox/js/legacy.min.js"></script>
-	-->
 	<script src="editor-app/libs/angular_1.2.13/angular.min.js"></script>
 	<script src="editor-app/libs/angular_1.2.13/angular-animate.min.js"></script>
 	<script src="editor-app/libs/bootstrap_3.1.1/js/bootstrap.min.js"></script>

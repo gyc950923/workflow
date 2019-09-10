@@ -22,6 +22,7 @@
     "TOOLBAR.ACTION.CLOSE" : "Close the editor and go back to the overview page",
     "TOOLBAR.ACTION.NEW" : "新建",
     "TOOLBAR.ACTION.SAVE" : "保存",
+    "TOOLBAR.ACTION.Gyc" : "Gyc保存",
     "TOOLBAR.ACTION.VALIDATE": "校验",
     "TOOLBAR.ACTION.CUT" : "剪切",
     "TOOLBAR.ACTION.COPY" : "复制",

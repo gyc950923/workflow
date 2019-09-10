@@ -67,7 +67,7 @@ angular.module('activitiModeler')
             	/* 给每个节点添加快捷菜单按钮*/
             	var quickMenuDefinition = ['UserTask', 'ConditionGateway', 'EndNoneEvent', 
             	                           'ExclusiveGateway','SequenceFlow', 'TextAnnotation',
-            	                           'Association'];
+            	                           'Association','SubProcess'];
             	var ignoreForPaletteDefinition = ['SequenceFlow', 'MessageFlow', 'Association', 'DataAssociation', 'DataStore', 'SendTask'];
             	var quickMenuItems = [];
             	
@@ -497,79 +497,19 @@ angular.module('activitiModeler')
 	            
 	            $rootScope.stencilInitialized = true;
             }
-            
+            //画布中节点编辑
             $scope.morphShape = function() {
             	
-            	/*  
-            	$scope.safeApply(function () {
-            		
-            		//alert("config");
-            		
-            		var shapes = $rootScope.editor.getSelection();
-            		if (shapes && shapes.length == 1)
-            		{
-            			alert("id:" + shapes[0].id);
-            			$rootScope.currentSelectedShape = shapes.first();
-            			var stencilItem = $scope.getStencilItemById($rootScope.currentSelectedShape.getStencil().idWithoutNs());
-            			var morphShapes = [];
-            			for (var i = 0; i < $scope.morphRoles.length; i++)
-            			{
-            				if ($scope.morphRoles[i].role === stencilItem.morphRole)
-        					{
-        						morphShapes = $scope.morphRoles[i].morphOptions.slice();
-        					}
-            			}
-            			
-
-            			// Method to open shape select dialog (used later on)
-                        var showSelectShapeDialog = function()
-                        {
-                            $rootScope.morphShapes = morphShapes;
-                            $modal({
-                                backdrop: false,
-                                keyboard: true,
-                                template: 'editor-app/popups/select-shape.html?version=' + Date.now()
-                              // template: 'editor-app/mypages/common_properties.html?version=' + Date.now()
-                            });
-                        };
-
-                        showSelectShapeDialog();
-            		}
-            		
-           
-            	}); 
             	
-            	*/
-           
-            	/*
-            	//$scope.showAlert("rrrrrrrrrrr");	
-            	//var ss = layer;
-            	alert("layer:" + layer);
-            	//layer.alert('内容');
-            	
-            	var index = layer.open({
-            		  type: 2,
-            		  title: 'layer mobile页',
-            		  shadeClose: false,
-            		  shade: 0.8,
-            		  area: ['380px', '60%'],
-            		  content: 'editor-app/mypages/common_properties2.html?version=' + Date.now(), //iframe的url
-            		  cancel: function(index){ 
-            				//右上角关闭回调
-            				alert('关闭回调：' + index);
-            			}
-            		}); 
-            		 */
-            	
-            	/* */
             	var shapes = $rootScope.editor.getSelection();
             	
         		if (shapes && shapes.length > 0)
         		{
+        			//resourceId为此节点id
         			var resourceId =  shapes[0].resourceId;
     	      		//var  stencilId = shapes[0]._stencil._jsonStencil.id;//类型
     	      		//var title = shapes[0]._stencil._jsonStencil.title;//名称
-    	      		
+        			//节点信息,下边根据此信息进行对比
     	      		var stencilItem = $scope.getStencilItemById(shapes.first().getStencil().idWithoutNs());
     	      		
       	      		//console.info("resourceId:" + resourceId + ",stencilId:" + stencilId + ",title:" + title);
@@ -941,7 +881,7 @@ angular.module('activitiModeler')
         };
 
         /*
-         * DRAG AND DROP FUNCTIONALITY
+         * 拖拽功能事件
          */
 
         $scope.dropCallback = function (event, ui) {

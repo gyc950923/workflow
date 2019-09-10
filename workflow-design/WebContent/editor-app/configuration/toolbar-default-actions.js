@@ -62,7 +62,7 @@ KISBPM.TOOLBAR = {
 			});
     		
     	},
-        saveModel: function (services) {
+    	saveModelGyc: function (services) {
         	if(undefined==_MODEL_ID||null==_MODEL_ID||""==_MODEL_ID){
         		//KISBPM.TOOLBAR.ACTIONS.newModel();
         		var uuid='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -85,6 +85,47 @@ KISBPM.TOOLBAR = {
     				}
     			});
         	}
+        	var json = services.$scope.editor.getJSON();
+            json = JSON.stringify(json);
+            JSON_MODEL = json;
+               
+        	//var toTop=(window.screen.availHeight -200)/2-30;//计算模态窗口距顶部的距离，用于上下居中
+    		//var toLeft=(window.screen.availWidth  -250)/2;//计算模态窗口距顶部的距离，用于左右居中
+    		var URL = 'editor-app/popups/save-model.jsp?version=' + Date.now();
+
+    		var opt = {
+    				title:"保存",
+    				width:350,
+    				height:120,
+    				max:false
+    			};
+    		jQuery.dlg(URL, opt);
+ 			//window.open(URL,"保存模型","toolbar=no, location=yes, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=yes, width=300, height=150, top="+toTop+", left="+toLeft);
+        },
+        saveModel: function (services) {
+        	if(undefined==_MODEL_ID||null==_MODEL_ID||""==_MODEL_ID){
+        		//KISBPM.TOOLBAR.ACTIONS.newModel();
+        		var uuid='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        	        var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+        	        return v.toString(16);
+        	    });
+        		var tmpUrl = ACTIVITI.CONFIG.context + "/wf/model/newModel";
+        		jQuery.ajax({
+        			url:tmpUrl,
+    				async:false,
+    				data:{
+    						oldModelId:_MODEL_ID,
+    						newModelId:uuid,
+    						option:"false",
+    					},
+    				dataType:"text",
+    				success:function(data){		
+    					_MODEL_ID=uuid;
+    					console.info("newModel:"+_MODEL_ID);  
+    				}
+    			});
+        	} 
+        	//拿到json_model，以供子窗口通过opener获取参数    获取画布中的数据
         	var json = services.$scope.editor.getJSON();
             json = JSON.stringify(json);
             JSON_MODEL = json;
