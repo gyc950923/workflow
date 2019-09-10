@@ -32,7 +32,7 @@ public class FlowDefinitionDao {
 			 try {
 			     objectMapper.writeValue(f, bean);
 			     String flowJson=objectMapper.writeValueAsString(bean);
-			     Configuration conf=new AnnotationConfiguration().configure();
+			     Configuration conf=new Configuration().configure();
 			        SessionFactory sf=conf.buildSessionFactory();
 			        Session sess=sf.openSession();
 			        Transaction tx=sess.beginTransaction();
@@ -73,7 +73,7 @@ public class FlowDefinitionDao {
            }
 			ObjectMapper objectMappe = new ObjectMapper();
             objectMappe.configure(Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true) ;
-            Configuration conf=new AnnotationConfiguration().configure();
+            Configuration conf=new Configuration().configure();
             SessionFactory sf=conf.buildSessionFactory();
             Session sess=sf.openSession();
             Transaction tx=sess.beginTransaction();

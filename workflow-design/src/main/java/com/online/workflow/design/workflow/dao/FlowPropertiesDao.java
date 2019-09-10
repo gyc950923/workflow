@@ -138,7 +138,7 @@ public class FlowPropertiesDao {
         FlowNodeProperties[] nodesArray=null;
         try {
             Long start=new Date().getTime();
-            Configuration conf=new AnnotationConfiguration().configure();
+            Configuration conf=new Configuration().configure();
             SessionFactory sf=conf.buildSessionFactory();
             Session sess=sf.openSession();
             Transaction tx=sess.beginTransaction();
@@ -194,7 +194,7 @@ public class FlowPropertiesDao {
 		}
 		*/
 	    
-	    Configuration conf=new AnnotationConfiguration().configure();
+	    Configuration conf=new Configuration().configure();
         SessionFactory sf=conf.buildSessionFactory();
         Session sess=sf.openSession();
         Transaction tx=sess.beginTransaction();
@@ -238,8 +238,6 @@ public class FlowPropertiesDao {
 	
 	/**
 	 * 根据流程主键获取指定属性主键的属性
-	 * @param flowId
-	 * @param id
 	 * @return
 	 */
 	public FlowNodeProperties getFlowNodeProperties(String modelId,String resourceId){
