@@ -3,5 +3,5 @@
 .settings
 .idea/
 /target/
-
 *.iml
+*.jar
