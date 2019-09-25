@@ -11,10 +11,7 @@ import java.util.Set;
 import javax.annotation.Resource;
 
 import org.apache.commons.lang.StringUtils;
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.DocumentHelper;
-import org.dom4j.Element;
+import org.dom4j.*;
 import org.springframework.stereotype.Service;
 
 import com.googlecode.aviator.AviatorEvaluator;
@@ -66,8 +63,13 @@ public class WorkFlowNodeNamesServiceImpl implements IWorkFlowNodeNamesService {
 				Element elementFirst = (Element) root.selectSingleNode("//"+XPDLNames.XPDL_Transitions+"//"+XPDLNames.XPDL_Transition+"[@fromNodeId='"+sid+"']");
 				sid = elementFirst.attributeValue("toNodeId");
 			}
-			
-			List<Element> list = (List<Element>) root.selectNodes("//"+XPDLNames.XPDL_Transitions+"//"+XPDLNames.XPDL_Transition+"[@fromNodeId='"+sid+"']");
+
+			List<Node> nodeList = root.selectNodes("//" + XPDLNames.XPDL_Transitions + "//" + XPDLNames.XPDL_Transition + "[@fromNodeId='" + sid + "']");
+			List<Element> list=new ArrayList<Element>();
+			for(int i=0;i<nodeList.size();i++){
+				Element element =(Element) nodeList.get(i);
+						list.add(element); //强制转换
+					}
 			for (Element o : list) {
 				Transition t = (Transition) XmlUtil.xmlStrToBean(o, Transition.class);
 				Element et = (Element) root.selectSingleNode("//"+XPDLNames.XPDL_EndNodes+"//"+XPDLNames.XPDL_EndNode+"[@id='" + t.getToNodeId() + "']");
@@ -100,8 +102,13 @@ public class WorkFlowNodeNamesServiceImpl implements IWorkFlowNodeNamesService {
 		String toNodeId = t.getToNodeId();
 		Element eName = (Element) root.selectSingleNode("//"+XPDLNames.XPDL_Activitys+"//"+XPDLNames.XPDL_Activity+"[@id='" + t.getToNodeId() + "']//"+XPDLNames.XPDL_InlineTasks+"//"+XPDLNames.XPDL_FormTask);
 		if(null == eName){
-			List<Element> list = root.selectNodes("//"+XPDLNames.XPDL_Transitions+"//"+XPDLNames.XPDL_Transition+"[@fromNodeId='"+t.getToNodeId()+"']");
-			for(Element e:list) {
+            List<Node> nodes = root.selectNodes("//" + XPDLNames.XPDL_Transitions + "//" + XPDLNames.XPDL_Transition + "[@fromNodeId='" + t.getToNodeId() + "']");
+            List<Element> list=new ArrayList<>();
+            for(int i=0;i<nodes.size();i++){
+                Element element =(Element) nodes.get(i);
+                list.add(element); //强制转换
+                    }
+            for(Element e:list) {
 				Transition transition = (Transition) XmlUtil.xmlStrToBean(e, Transition.class);
 				if(StringUtils.isNotBlank(transition.getSqlCondition()) && sqlConditionFilter(transition, entityId)) {
 					toNodeId = transition.getToNodeId();
@@ -199,7 +206,6 @@ public class WorkFlowNodeNamesServiceImpl implements IWorkFlowNodeNamesService {
 	
 	/**
 	 * 设置部门+角色 部门来源公用信息
-	 * @param root2
 	 * @param element
 	 */
 	private void setOrgRolePublicParam(Element eRoot, Element element) {
@@ -252,7 +258,6 @@ public class WorkFlowNodeNamesServiceImpl implements IWorkFlowNodeNamesService {
 	 * huoqu 机构+角色审批节点下的人员
 	 * @param element
 	 * @param map
-	 * @param processid
 	 */
 	private void getUsersByOrgRoleInfos(Element element, Map<String, Object> map, String entityId, String entityName) {
 		try{
@@ -269,7 +274,6 @@ public class WorkFlowNodeNamesServiceImpl implements IWorkFlowNodeNamesService {
 	/**
 	 * 获取所选角色下人员信息列表
 	 * @param element
-	 * @param userList
 	 */
 	private void getUsersByRoleInfos(Element element, Map<String, Object> map) {
 		try{
@@ -312,7 +316,6 @@ public class WorkFlowNodeNamesServiceImpl implements IWorkFlowNodeNamesService {
 	/**
 	 * 获取所选指定人员信息
 	 * @param element
-	 * @param userList
 	 */
 	private void getUserInfos(Element element, Map<String, Object> map) {
 		try{
@@ -442,8 +445,6 @@ public class WorkFlowNodeNamesServiceImpl implements IWorkFlowNodeNamesService {
 	 * 功能:sql条件<br>
 	 * 约束:与本函数相关的约束<br>
 	 * 
-	 * @param token
-	 * @param transition
 	 * @return
 	 */
 	private boolean sqlConditionFilter(Transition e, String entityId) {
@@ -467,8 +468,7 @@ public class WorkFlowNodeNamesServiceImpl implements IWorkFlowNodeNamesService {
      * 
      * 功能:自定义方法<br>
      * 约束:与本函数相关的约束<br>
-     * @param token 
-     * @param transition 
+     * @param transition
      * @return
      */
     @SuppressWarnings("rawtypes")

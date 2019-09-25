@@ -27,7 +27,6 @@ public class InitNodeServiceImpl implements IInitNodeService{
      * 
      * 功能:初始化开始节点<br>
      * 约束:与本函数相关的约束<br>
-     * @param iWFElement
      * @param workflow
      * @param resourceId 
      */
@@ -46,7 +45,6 @@ public class InitNodeServiceImpl implements IInitNodeService{
      * 
      * 功能:初始化用户活动节点<br>
      * 约束:与本函数相关的约束<br>
-     * @param iWFElement
      * @param workflow
      * @param resourceId
      */
@@ -74,7 +72,6 @@ public class InitNodeServiceImpl implements IInitNodeService{
      * 
      * 功能:初始化连接线<br>
      * 约束:与本函数相关的约束<br>
-     * @param iWFElement
      * @param workflow
      * @param resourceId
      * @param toResourceId 

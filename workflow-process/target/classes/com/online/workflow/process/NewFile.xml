@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<student name="zhangsan">
-	<hello>
-		<gou>ffdfdf</gou>
-		hello Text
-	</hello>
-	<world>world text</world>
-</student>
